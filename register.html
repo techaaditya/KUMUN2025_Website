@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - KUMUN 2025</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logo.png" alt="KUMUN Logo">
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="committees.html" class="nav-link">Committees</a></li>
+                <li class="nav-item"><a href="schedule.html" class="nav-link">Schedule</a></li>
+                <li class="nav-item"><a href="media.html" class="nav-link">Media</a></li>
+                <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
+                <li class="nav-item"><a href="register.html" class="btn btn-primary active">Register Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Join Us at KUMUN 2025</h1>
+                <p>Be part of Nepal's premier Model United Nations conference</p>
+            </div>
+        </section>
+
+        <!-- Registration Section -->
+        <section class="content-section">
+            <div class="container text-center fade-in">
+                <p class="registration-subtitle">Register now to secure your spot among future diplomats and leaders.</p>
+                
+                <div class="registration-info">
+                    <div class="registration-details">
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <h4>September 17–19, 2025</h4>
+                            <p>Three days of intensive debate and diplomacy</p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4>Kathmandu University</h4>
+                            <p>Dhulikhel, Kavre</p>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-users"></i>
+                            <h4>Open to All</h4>
+                            <p>University & High School Students</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="registration-buttons">
+                    <a href="https://kumun.ku.edu.np/wordpress/index.php/delegates-registration-form/" target="_blank" class="btn btn-primary btn-lg">Register as Delegate</a>
+                    <a href="committees.html" class="btn btn-outline-primary btn-lg">View Committees</a>
+                </div>
+
+                <!-- Countdown Timer for Registration -->
+                <div class="countdown-section">
+                    <h3>Conference Starts In:</h3>
+                    <div class="countdown-wrap" id="countdownWrap">
+                        <div class="count-item">
+                            <div class="num" id="days">0</div>
+                            <div class="label">Days</div>
+                        </div>
+                        <div class="count-item">
+                            <div class="num" id="hours">00</div>
+                            <div class="label">Hours</div>
+                        </div>
+                        <div class="count-item">
+                            <div class="num" id="minutes">00</div>
+                            <div class="label">Minutes</div>
+                        </div>
+                        <div class="count-item">
+                            <div class="num" id="seconds">00</div>
+                            <div class="label">Seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-about">
+                <img src="assets/logo.png" class="footer-logo" alt="KUMUN Logo">
+                <p>Fostering a new generation of leaders through diplomatic simulation and debate.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="committees.html">Committees</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 KUMUN Secretariat. Made with ❤️ at Kathmandu University.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <!-- Countdown Timer Script -->
+    <script>
+        // Set target event date/time (September 17, 2025 09:00:00)
+        const eventDate = new Date("Sep 17, 2025 09:00:00").getTime();
+
+        const elDays = document.getElementById('days');
+        const elHours = document.getElementById('hours');
+        const elMinutes = document.getElementById('minutes');
+        const elSeconds = document.getElementById('seconds');
+
+        function twoDigits(n) {
+            return n < 10 ? '0' + n : n;
+        }
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = eventDate - now;
+
+            if (diff <= 0) {
+                // Event reached or passed
+                elDays.textContent = '0';
+                elHours.textContent = '00';
+                elMinutes.textContent = '00';
+                elSeconds.textContent = '00';
+                return;
+            }
+
+            const secondsTotal = Math.floor(diff / 1000);
+            const days = Math.floor(secondsTotal / (24 * 3600));
+            const hours = Math.floor((secondsTotal % (24 * 3600)) / 3600);
+            const minutes = Math.floor((secondsTotal % 3600) / 60);
+            const seconds = secondsTotal % 60;
+
+            elDays.textContent = days;
+            elHours.textContent = twoDigits(hours);
+            elMinutes.textContent = twoDigits(minutes);
+            elSeconds.textContent = twoDigits(seconds);
+        }
+
+        // Update immediately and then every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
