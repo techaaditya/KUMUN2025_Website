@@ -4,6 +4,7 @@
     --color-secondary: #8b5cf6;
     --color-accent: #14b8a6;
     --color-dark: #111827;
+    --color-heading: #111827;
     --color-light: #f9fafb;
     --color-text: #374151;
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -18,6 +19,7 @@ body { font-family: var(--font-family); line-height: 1.6; background-color: var(
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 .content-section { padding: 80px 0; }
 .alt-bg { background-color: #ffffff; }
+.bg-light { background-color: #f3f6fb; }
 .text-center { text-align: center; }
 
 /* --- Reusable Components --- */
@@ -1755,7 +1757,8 @@ body { font-family: var(--font-family); line-height: 1.6; background-color: var(
 /* Schedule Section Enhancement */
 .schedule-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /* Force two columns so four days show as 2x2, not 3+1 */
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
     gap: 40px;
     margin-bottom: 40px;
 }
@@ -2269,5 +2272,705 @@ body { font-family: var(--font-family); line-height: 1.6; background-color: var(
     }
     .faq-answer p {
         padding: 0 20px 20px;
+    }
+}
+
+/* --- Registration & Fees Section --- */
+.registration-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.registration-card {
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition-speed);
+}
+
+.registration-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.registration-card h3 {
+    color: var(--color-dark);
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.fee-structure {
+    margin-bottom: 30px;
+}
+
+.fee-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.fee-item:last-child {
+    border-bottom: none;
+}
+
+.fee-label {
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.fee-amount {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+}
+
+.registration-includes h4 {
+    color: var(--color-dark);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.registration-includes ul {
+    list-style: none;
+    padding: 0;
+}
+
+.registration-includes li {
+    padding: 8px 0;
+    position: relative;
+    padding-left: 25px;
+}
+
+.registration-includes li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+.deadlines-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.deadline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-primary);
+}
+
+.deadline-date {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+}
+
+.deadline-desc {
+    font-weight: 500;
+    color: var(--color-text);
+    text-align: right;
+}
+
+/* Action button rows under notes (deadlines/schedule) */
+.deadline-actions, .schedule-actions {
+    /* containers are flex via inline style; enhance layout here */
+    gap: 12px;
+    justify-content: center;
+}
+.deadline-actions .btn, .schedule-actions .btn {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 180px;
+    text-align: center;
+}
+@media (max-width: 640px) {
+    .deadline-actions .btn, .schedule-actions .btn {
+        flex-basis: 100%;
+    }
+}
+
+/* --- Awards & Recognition Section --- */
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.award-category {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition-speed);
+    border-top: 4px solid var(--color-accent);
+}
+
+.award-category:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.award-category h3 {
+    color: var(--color-dark);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.award-category p {
+    color: var(--color-text);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.award-criteria h4 {
+    color: var(--color-dark);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.award-criteria ul {
+    list-style: none;
+    padding: 0;
+}
+
+.award-criteria li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.award-criteria li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+/* --- Rules & Procedures Section --- */
+.rules-overview {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.rules-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+.rules-highlights {
+    display: grid;
+    /* Force a clean 2x2 layout on larger screens */
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.rule-highlight {
+    background: white;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition-speed);
+}
+
+.rule-highlight:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.rule-highlight h4 {
+    color: var(--color-dark);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.rule-highlight p {
+    color: var(--color-text);
+    font-size: 0.95rem;
+}
+
+.rules-download {
+    text-align: center;
+}
+
+/* --- Secretariat & Team Section --- */
+.secretariat-grid {
+    display: grid;
+    /* Force two columns to avoid 3+1 wrapping when there are 4 items */
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.secretariat-card {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition-speed);
+    text-align: center;
+    border-top: 4px solid var(--color-primary);
+}
+
+.secretariat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.secretariat-card h3 {
+    color: var(--color-dark);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.secretariat-name {
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.secretariat-role {
+    color: var(--color-text);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.secretariat-contact {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* --- Committee Topics & Agendas Section --- */
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.topic-card {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition-speed);
+    border-left: 4px solid var(--color-secondary);
+}
+
+.topic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.topic-card h3 {
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.topic-details h4 {
+    color: var(--color-primary);
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.topic-details p {
+    color: var(--color-text);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* --- Background Guide Information Section --- */
+.preparation-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.preparation-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+.preparation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.preparation-card {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition-speed);
+}
+
+.preparation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.preparation-card h3 {
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.preparation-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.preparation-card li {
+    padding: 8px 0;
+    position: relative;
+    padding-left: 25px;
+    color: var(--color-text);
+}
+
+.preparation-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+.download-section {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.download-section h3 {
+    color: var(--color-dark);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.download-section p {
+    color: var(--color-text);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.download-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- Detailed Session Information Section --- */
+.session-details {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.session-card {
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.session-card h3 {
+    color: var(--color-dark);
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.session-structure {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.session-phase {
+    background: #f8fafc;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid var(--color-primary);
+    transition: var(--transition-speed);
+}
+
+.session-phase:hover {
+    background: #f1f5f9;
+    transform: translateX(5px);
+}
+
+.session-phase h4 {
+    color: var(--color-dark);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.session-phase p {
+    color: var(--color-text);
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.duration {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* --- Training & Preparation Section --- */
+.training-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.training-card {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition-speed);
+}
+
+.training-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.training-card h3 {
+    color: var(--color-dark);
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.training-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.training-session {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-accent);
+}
+
+.training-date {
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.training-session h4 {
+    color: var(--color-dark);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.training-session p {
+    color: var(--color-text);
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.training-time {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.training-topics ul {
+    list-style: none;
+    padding: 0;
+}
+
+.training-topics li {
+    padding: 10px 0;
+    position: relative;
+    padding-left: 25px;
+    color: var(--color-text);
+}
+
+.training-topics li::before {
+    content: '📚';
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+}
+
+/* --- Logistics & Venue Information Section --- */
+.logistics-grid {
+    display: grid;
+    /* Force two columns so four items show as 2x2, not 3+1 */
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.logistics-card {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition-speed);
+}
+
+.logistics-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.logistics-card h3 {
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.venue-info h4,
+.accommodation-info h4,
+.transport-info h4,
+.meals-info h4 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.venue-info p,
+.accommodation-info p,
+.transport-info p,
+.meals-info p {
+    color: var(--color-text);
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.transport-info ul,
+.meals-info ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.transport-info li,
+.meals-info li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.transport-info li::before,
+.meals-info li::before {
+    content: '🚌';
+    position: absolute;
+    left: 0;
+    font-size: 0.9rem;
+}
+
+.meals-info li::before {
+    content: '🍽️';
+}
+
+/* --- Responsive Design for New Sections --- */
+@media (max-width: 768px) {
+    .registration-grid,
+    .training-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .awards-grid,
+    .secretariat-grid,
+    .topics-grid,
+    .preparation-grid,
+    .logistics-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .rules-highlights {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .download-buttons {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .registration-card,
+    .award-category,
+    .secretariat-card,
+    .topic-card,
+    .preparation-card,
+    .training-card,
+    .logistics-card {
+        padding: 25px;
+    }
+    
+    .session-card {
+        padding: 25px;
+    }
+    
+    .session-phase {
+        padding: 20px;
+    }
+    
+    .deadline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .deadline-desc {
+        text-align: left;
+    }
+    
+    .fee-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .fee-amount {
+        align-self: flex-end;
     }
 }
