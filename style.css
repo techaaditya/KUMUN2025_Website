@@ -661,6 +661,64 @@ body { font-family: var(--font-family); line-height: 1.6; background-color: var(
     padding-left: 30px;
 }
 
+/* Quick Links: Contact Us compact block */
+.footer-links .links-subtitle {
+    margin-top: 24px;
+    margin-bottom: 30px; /* match Quick Links spacing */
+    font-size: 1.5rem; /* match Quick Links h4 */
+    font-weight: 700;
+    position: relative;
+    background: linear-gradient(135deg, #ffffff, var(--color-primary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* underline bar same as Quick Links h4 */
+.footer-links .links-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+    border-radius: 2px;
+}
+.footer-links .contact-us {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.footer-links .contact-us li { margin-bottom: 8px; }
+.footer-links .contact-us a {
+    color: #cbd5e1;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; /* stack number then name */
+    align-items: flex-start;
+    gap: 4px;
+    padding: 6px 0;
+    cursor: default; /* indicate non-clickable */
+    position: relative;
+    transition: color 0.25s ease, transform 0.25s ease; /* smooth, subtle */
+}
+.footer-links .contact-us a .left { display: flex; align-items: center; gap: 8px; }
+.footer-links .contact-us .contact-number { font-weight: 600; letter-spacing: .2px; white-space: nowrap; }
+.footer-links .contact-us a i { color: var(--color-accent); width: 20px; text-align: center; transition: color 0.25s ease, transform 0.25s ease; }
+.footer-links .contact-us a:hover {
+    color: var(--color-primary);
+    transform: translateX(4px); /* smaller shift to avoid button-like feel */
+}
+.footer-links .contact-us a:hover i { transform: translateX(2px); }
+/* indent name so it aligns under the phone number (after the icon) */
+.footer-links .contact-us .contact-name { opacity: 0.9; font-weight: 500; padding-left: 28px; white-space: normal; transition: color 0.25s ease, opacity 0.25s ease; }
+.footer-links .contact-us a:hover .contact-name { opacity: 1; }
+
+@media (max-width: 576px) {
+    .footer-links .contact-us a { gap: 4px; }
+    .footer-links .links-subtitle { font-size: 1.3rem; } /* match Quick Links mobile */
+}
+
 .footer-newsletter {
     background: rgba(255,255,255,0.03);
     padding: 40px 35px;
@@ -844,15 +902,17 @@ body { font-family: var(--font-family); line-height: 1.6; background-color: var(
 
 .footer-bottom-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
+    text-align: center;
+    gap: 16px;
 }
 
 .footer-copyright p {
     font-size: 1rem;
-    color: #94a3b8;
+    color: #ffffff;
     margin: 0;
     font-weight: 400;
 }

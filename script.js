@@ -51,4 +51,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.getElementById('particles-js')) {
         particlesJS('particles-js', { particles: { number: { value: 60, density: { enable: true, value_area: 800 } }, color: { value: "#ffffff" }, shape: { type: "circle" }, opacity: { value: 0.5, random: false }, size: { value: 3, random: true }, line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 }, move: { enable: true, speed: 2, direction: "none", out_mode: "out" } }, interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" }, resize: true } }, retina_detect: true });
     }
+
+    // --- Make Contact Us items unclickable (keep hover animation) ---
+    const contactLinks = document.querySelectorAll('.footer-links .contact-us a');
+    contactLinks.forEach(link => {
+        // Prevent mouse clicks from triggering tel: or navigation
+        link.addEventListener('click', (e) => e.preventDefault());
+        // Prevent keyboard activation (Enter/Space)
+        link.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+            }
+        });
+        // Remove href so it's non-interactive, keep hover styles
+        link.removeAttribute('href');
+        // Remove from tab order
+        link.tabIndex = -1;
+        // Mark as disabled for assistive tech
+        link.setAttribute('aria-disabled', 'true');
+        link.setAttribute('role', 'text');
+    });
 });
