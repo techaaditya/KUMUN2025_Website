@@ -446,5 +446,26 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
     </script>
+    <!-- Popup Notice -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <h2>Notice</h2>
+    <p>Our KUMUN has been postponed until further notice.</p>
+  </div>
+</div>
+
+<script>
+  // Show popup on page load
+  window.onload = function() {
+    document.getElementById("popup").style.display = "block";
+  };
+
+  // Close popup function
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
 </body>
 </html>
